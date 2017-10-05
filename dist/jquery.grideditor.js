@@ -7,9 +7,9 @@ $.fn.gridEditor = function( options ) {
 
     var self = this;
     var grideditor = self.data('grideditor');
-    
+
     /** Methods **/
-    
+
     if (arguments[0] == 'getHtml') {
         if (grideditor) {
             grideditor.deinit();
@@ -19,8 +19,8 @@ $.fn.gridEditor = function( options ) {
         } else {
             return self.html();
         }
-    } 
-    
+    }
+
     /** Initialize plugin */
 
     self.each(function(baseIndex, baseElem) {
@@ -63,19 +63,19 @@ $.fn.gridEditor = function( options ) {
         var colClasses = ['col-md-', 'col-sm-', 'col-xs-'];
         var curColClassIndex = 0; // Index of the column class we are manipulating currently
         var MAX_COL_SIZE = 12;
-        
+
         // Copy html to sourceElement if a source textarea is given
         if (settings.source_textarea) {
             var sourceEl = $(settings.source_textarea);
-            
+
             sourceEl.addClass('ge-html-output');
             htmlTextArea = sourceEl;
-                
+
             if (sourceEl.val()) {
                 baseElem.html(sourceEl.val());
             }
         }
-        
+
         // Wrap content if it is non-bootstrap
         if (baseElem.children().length && !baseElem.find('div.row').length) {
             var children = baseElem.children();
@@ -89,7 +89,7 @@ $.fn.gridEditor = function( options ) {
         function setup() {
             /* Setup canvas */
             canvas = baseElem.addClass('ge-canvas');
-            
+
             if (typeof htmlTextArea === 'undefined' || !htmlTextArea.length) {
                 htmlTextArea = $('<textarea class="ge-html-output"/>').insertBefore(canvas);
             }
@@ -247,9 +247,13 @@ $.fn.gridEditor = function( options ) {
         function createRowControls() {
             canvas.find('.row').each(function() {
                 var row = $(this);
-                if (row.find('> .ge-tools-drawer').length) { return; }
+                if (row.find('> .ge-tools-wrapper').length) { return; }
 
                 var drawer = $('<div class="ge-tools-drawer" />').prependTo(row);
+
+                // Add A Wrapper for additional Styles.
+                var wrapper = drawer.wrap('<div class="ge-tools-wrapper" />');
+
                 createTool(drawer, 'Move', 'ge-move', 'glyphicon-move');
                 createTool(drawer, 'Settings', '', 'glyphicon-cog', function() {
                     details.toggle();
@@ -308,7 +312,7 @@ $.fn.gridEditor = function( options ) {
                 createTool(drawer, 'Settings', '', 'glyphicon-cog', function() {
                     details.toggle();
                 });
-                
+
                 settings.col_tools.forEach(function(t) {
                     createTool(drawer, t.title || '', t.className || '', t.iconClass || 'glyphicon-wrench', t.on);
                 });
@@ -537,11 +541,11 @@ $.fn.gridEditor = function( options ) {
                 canvas.toggleClass(cssClass, i == colClassIndex);
             });
         }
-        
+
         function getRTE(type) {
             return $.fn.gridEditor.RTEs[type];
         }
-        
+
         function clamp(input, min, max) {
             return Math.min(max, Math.max(min, input));
         }
@@ -560,6 +564,7 @@ $.fn.gridEditor = function( options ) {
 $.fn.gridEditor.RTEs = {};
 
 })( jQuery );
+
 (function() {
     $.fn.gridEditor.RTEs.ckeditor = {
 

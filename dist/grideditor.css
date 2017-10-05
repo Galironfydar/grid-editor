@@ -58,7 +58,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background: blue;
   margin: 0 -5px 5px;
   display: block;
 }
@@ -91,32 +90,31 @@
   width: 80px;
 }
 .ge-canvas.ge-editing .row {
-  background-color: #efefef;
-  border: 1px solid #999999;
   padding: 0 5px 5px;
   margin-bottom: 5px;
   margin-left: 0;
   margin-right: 0;
 }
 .ge-canvas.ge-editing .row > .ge-tools-drawer {
-  background: #e5e5e5;
+  width: 100px;
+  background-color: #F7F7F7;
 }
 .ge-canvas.ge-editing .row > .ge-tools-drawer > a {
   color: #666;
 }
 .ge-canvas.ge-editing .row > .ge-tools-drawer > a.ge-add-column {
-  color: #178acc;
+  color: #C1C1C1;
 }
 .ge-canvas.ge-editing .column {
-  background-color: rgba(47, 164, 231, 0.15);
-  border: 1px solid #2FA4E7;
+  background-color: white;
+  border: 1px solid #C1C1C1;
   padding: 0 5px 5px;
 }
 .ge-canvas.ge-editing .column > .ge-tools-drawer {
-  background: #afd5ea;
+  background: white;
 }
 .ge-canvas.ge-editing .column > .ge-tools-drawer a {
-  color: #178acc;
+  color: #C1C1C1;
 }
 .ge-canvas.ge-editing .column > .ge-tools-drawer > a.ge-add-row {
   color: #666;

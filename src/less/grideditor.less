@@ -1,14 +1,14 @@
 @editGutter: 5px;
 @drawerHeight: 32px;
 @rowTextColor: #666;
-@colColor: #2FA4E7;
-@colTextColor: darken(@colColor, 10%);
+@colColor: #C1C1C1;
+@colTextColor: @colColor;
 
 .ge-mainControls {
     position: relative;
     min-height: 22px;
     margin-bottom: 10px;
-    
+
     .ge-wrapper {
         padding-top: 5px;
     }
@@ -24,19 +24,19 @@
         z-index: 20;
         top: 0;
     }
-    
+
     .ge-addRowGroup {
         .btn.btn-primary {
             background: #f4f4f4;
             color: @rowTextColor;
             border-color: #999;
         }
-        
+
         .ge-row-icon {
             display: inline-block;
             width: 48px;
             margin: 0;
-            
+
             .column {
                 height: 10px;
                 background: #666;
@@ -45,11 +45,11 @@
             }
         }
     }
-    
+
     .ge-layout-mode {
         margin-left: 5px;
     }
-    
+
     .btn:focus {
         box-shadow: none;
         outline: none;
@@ -70,21 +70,20 @@
 
 /* While editing */
 .ge-canvas.ge-editing {
-    
+
     .ge-tools-drawer {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        background: blue;
         margin: 0 -@editGutter @editGutter;
         display: block;
-        
+
         > a {
             display: inline-block;
             padding: 5px;
-            
+
         }
         > a:hover {
             background: rgba(255, 255, 255, 0.5);
@@ -94,7 +93,7 @@
             padding: 5px;
             border-top: 1px solid rgba(0,0,0,0.05);
             display: none;
-            
+
             .btn-group {
                 a {
                     color: #333;
@@ -109,19 +108,19 @@
                 border-radius: 4px;
                 font-size: 11px;
                 padding: 2px 5px;
-                margin-right: 5px; 
+                margin-right: 5px;
                 width: 80px;
             }
         }
     }
     .row {
-        background-color: #efefef;
-        border: 1px solid rgb(153,153,153);
+        // background-color: #F7F7F7;
+        // border: 1px solid rgb(153,153,153);
         padding: 0 @editGutter @editGutter;
         margin-bottom: @editGutter;
         margin-left: 0;
         margin-right: 0;
-        
+
         > .ge-tools-drawer {
             > a {
                 color: #666;
@@ -130,14 +129,16 @@
                 color: @colTextColor;
             }
             // background: rgba(153,153,153,0.2);
-            background: #e5e5e5;
+            // background: #e5e5e5;
+            width: 100px;
+            background-color: #F7F7F7;
         }
     }
     .column {
-        background-color: fadeout(@colColor, 85%);
+        background-color: white;
         border: 1px solid @colColor;
         padding: 0 @editGutter @editGutter;
-        
+
         > .ge-tools-drawer {
             a {
                 color: @colTextColor;
@@ -145,15 +146,15 @@
             > a.ge-add-row {
                 color: @rowTextColor;
             }
-            background: #afd5ea;
+            background: white;
         }
     }
-    
+
     /* Content area */
     .ge-content-type-tinymce.active {
         outline: 1px dotted #333;
     }
-    
+
     /* Sorting */
     .ui-sortable-placeholder {
         background: fadeout(yellow, 80%);
